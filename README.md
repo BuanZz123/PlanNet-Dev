@@ -1,4 +1,4 @@
-# 🚀 Windows Auto Setup with TightVNC, Ngrok, and Remote Desktop Access
+# 🚀 Windows Auto Setup mode
 
 ⚠ **WARNING:** This repository is intended for **educational purposes only**.  
 **DO NOT** use it for malicious activities or spamming. Misuse of this script **violates GitHub's terms of service** and could result in **account suspension**.
